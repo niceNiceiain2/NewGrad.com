@@ -21,7 +21,16 @@ Preferred communication style: Simple, everyday language.
 - Shadcn UI component library (New York style variant) for consistent, accessible components
 - Radix UI primitives for unstyled, accessible component foundations
 - Tailwind CSS for utility-first styling with custom design tokens
+- Less CSS preprocessor for advanced styling features (variables, mixins, nesting)
 - CVA (Class Variance Authority) for managing component variants
+
+**Less CSS Integration**
+- **Variables** (`client/src/styles/variables.less`) - Project-wide design tokens including colors, spacing, typography, shadows, and transitions
+- **Mixins** (`client/src/styles/mixins.less`) - Reusable style patterns for buttons, cards, flexbox helpers, text truncation, and responsive breakpoints
+- **Components** (`client/src/styles/components.less`) - Component-specific styles using BEM naming convention with Less features (nesting, color functions)
+- **Features**: Variables, mixins, nested selectors, BEM methodology, color manipulation functions (darken, lighten, fade), parent selectors (&), and imports
+- **Usage**: Less files are automatically compiled by Vite with zero configuration required
+- **Demo**: Visit `/less-demo` route to see interactive examples of all Less features
 
 **Design System**
 - Typography: Inter font family from Google Fonts
