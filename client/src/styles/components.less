@@ -1,0 +1,174 @@
+// Import variables and mixins
+@import './variables.less';
+@import './mixins.less';
+
+// Example component styles using Less features
+
+// Custom API Badge component
+.api-badge {
+  display: inline-block;
+  padding: @spacing-xs @spacing-sm;
+  border-radius: @border-radius-full;
+  font-size: @font-size-xs;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  &--get {
+    background-color: fade(@success-color, 15%);
+    color: @success-color;
+  }
+  
+  &--post {
+    background-color: fade(@primary-color, 15%);
+    color: @primary-color;
+  }
+  
+  &--put {
+    background-color: fade(@warning-color, 15%);
+    color: @warning-color;
+  }
+  
+  &--delete {
+    background-color: fade(@danger-color, 15%);
+    color: @danger-color;
+  }
+}
+
+// Custom API Card component
+.api-card {
+  .card();
+  margin-bottom: @spacing-lg;
+  
+  &__header {
+    .flex-between();
+    margin-bottom: @spacing-md;
+    padding-bottom: @spacing-md;
+    border-bottom: 1px solid @border-color;
+  }
+  
+  &__title {
+    font-size: @font-size-lg;
+    font-weight: 600;
+    color: @text-primary;
+    margin: 0;
+  }
+  
+  &__description {
+    color: @text-secondary;
+    font-size: @font-size-sm;
+    line-height: 1.6;
+    margin-bottom: @spacing-md;
+  }
+  
+  &__code {
+    background-color: @background-light;
+    border-radius: @border-radius-md;
+    padding: @spacing-md;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: @font-size-sm;
+    overflow-x: auto;
+    
+    pre {
+      margin: 0;
+    }
+  }
+}
+
+// Custom buttons using mixin
+.btn-primary {
+  .button-variant(@primary-color);
+}
+
+.btn-success {
+  .button-variant(@success-color);
+}
+
+.btn-danger {
+  .button-variant(@danger-color);
+}
+
+.btn-secondary {
+  .button-variant(@secondary-color);
+}
+
+// Feature highlight section
+.feature-highlight {
+  .card();
+  .gradient-bg(@primary-color, @secondary-color);
+  color: white;
+  
+  h3 {
+    margin-top: 0;
+    font-size: @font-size-2xl;
+  }
+  
+  p {
+    font-size: @font-size-base;
+    opacity: 0.95;
+  }
+}
+
+// Status indicator
+.status-indicator {
+  .flex-center();
+  width: 8px;
+  height: 8px;
+  border-radius: @border-radius-full;
+  
+  &--success {
+    background-color: @success-color;
+  }
+  
+  &--error {
+    background-color: @danger-color;
+  }
+  
+  &--warning {
+    background-color: @warning-color;
+  }
+  
+  &--info {
+    background-color: @info-color;
+  }
+}
+
+// Nested example with hover effects
+.nav-item {
+  padding: @spacing-sm @spacing-md;
+  border-radius: @border-radius-md;
+  transition: @transition-fast;
+  cursor: pointer;
+  
+  .icon {
+    margin-right: @spacing-sm;
+    transition: @transition-fast;
+  }
+  
+  .label {
+    color: @text-secondary;
+    font-size: @font-size-sm;
+  }
+  
+  &:hover {
+    background-color: @background-light;
+    
+    .icon {
+      transform: translateX(2px);
+      color: @primary-color;
+    }
+    
+    .label {
+      color: @text-primary;
+    }
+  }
+  
+  &.active {
+    background-color: fade(@primary-color, 10%);
+    
+    .label {
+      color: @primary-color;
+      font-weight: 600;
+    }
+  }
+}
