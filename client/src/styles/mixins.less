@@ -1,0 +1,101 @@
+// LESS Mixins
+// Reusable style patterns
+
+// Flexbox mixins
+.flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column() {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button mixin with variants
+.button-base() {
+  padding: @spacing-sm @spacing-lg;
+  border-radius: @border-radius-md;
+  font-weight: 500;
+  transition: @transition-base;
+  cursor: pointer;
+  border: none;
+  font-family: @font-family-base;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.button-variant(@bg-color) {
+  .button-base();
+  background-color: @bg-color;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: darken(@bg-color, 10%);
+    transform: translateY(-1px);
+    box-shadow: @shadow-md;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: @shadow-sm;
+  }
+}
+
+// Card mixin
+.card() {
+  background: white;
+  border-radius: @border-radius-lg;
+  padding: @spacing-lg;
+  box-shadow: @shadow-sm;
+  border: 1px solid @border-color;
+  transition: @transition-base;
+  
+  &:hover {
+    box-shadow: @shadow-md;
+  }
+}
+
+// Text truncate
+.text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Text truncate multiline
+.text-truncate-lines(@lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: @lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Responsive breakpoints
+.respond-to-tablet(@rules) {
+  @media (min-width: 768px) {
+    @rules();
+  }
+}
+
+.respond-to-desktop(@rules) {
+  @media (min-width: 1024px) {
+    @rules();
+  }
+}
+
+// Gradient background
+.gradient-bg(@start-color, @end-color, @direction: 135deg) {
+  background: linear-gradient(@direction, @start-color, @end-color);
+}
